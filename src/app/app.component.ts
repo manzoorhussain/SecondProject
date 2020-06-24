@@ -8,17 +8,34 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'SecondProject';
 
-  serverElement=[{name:'Server Name',content:'This is server content'}];
-
-  onServerAdded(serverData:{serverName:string,serverContent}){
-
-    this.serverElement.push({name:serverData.serverName,content:serverData.serverContent });
-  }
+  serverElements=[];
+  serverName='';
+  serverContent='';
+  serverType='';
 
 
-  onBlueprintAdded(blueprintData:{serverName:string,serverContent}){
+   onAddServer(){
+    console.log("Clcik")
 
-   this.serverElement.push({name:blueprintData.serverName,content:blueprintData.serverContent });
-  }
+     this.serverElements.push(
+       {
+         serverType:'server',
+         name:this.serverName,
+         content:this.serverContent
+       }
+       );
+
+   }
+
+   onAddBlurPrint(){
+
+ this.serverElements.push(
+   {
+     serverType:'blueprint',
+     name:this.serverName,
+     content:this.serverContent
+   });
+
+   }
 }
 

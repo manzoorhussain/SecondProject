@@ -2,6 +2,26 @@
 <div class="row">
  <div class="col-lg-12">
 
+   <form>
+
+     <div class="form-group">
+    <label for="servername">Server Name </label>
+    <input type="text" class="form-control" id="serverName" [(ngModel)]="serverName" name="serverName">
+
+  </div>
+
+
+      <div class="form-group">
+    <label for="servercontent">Server Content </label>
+    <input type="text" class="form-control" id="serverContent" [(ngModel)]="serverContent" name="serverContent">
+
+      </div>
+    <button class="btn btn-primary" (click)="onAddServer()">Add Server</button>
+    <button class="btn btn-primary" style="margin-left: 12px" (click)="onAddBlurPrint()" >Add Server Blueprint</button>
+
+   </form>
+
+
 
  </div>
 </div>
@@ -11,6 +31,20 @@
 <div class="row">
  <div class="col-xs-12">
 
+   <div class="card" *ngFor="let server of serverElements">
+  <div class="card-header" style="width: 1135px;"><strong>{{server.name}}</strong></div>
+  <div class="card-body" *ngIf="server.serverType==='server'" style="background:red">
+    {{server.content}}
+  </div>
+
+     <div class="card-body" *ngIf="server.serverType==='blueprint'" style="background:blue">
+    {{server.content}}
+  </div>
+
+
+</div>
+
  </div>
 </div>
+
 </div>
