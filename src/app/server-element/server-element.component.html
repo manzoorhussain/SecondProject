@@ -1,0 +1,12 @@
+  <div class="card" *ngFor="let server of serverElements">
+  <div class="card-header" style="width: 1135px;"><strong>{{server.name}}</strong></div>
+  <div class="card-body" *ngIf="server.serverType==='server'" style="background:red">
+    {{server.content}}
+  </div>
+
+     <div class="card-body" *ngIf="server.serverType==='blueprint'" style="background:blue">
+    {{server.content}}
+  </div>
+
+
+</div>

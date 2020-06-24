@@ -7,11 +7,41 @@ import {Component, Input, OnInit} from '@angular/core';
   styleUrls: ['./cockpit.component.css']
 })
 export class CockpitComponent implements OnInit {
-   @Input() element= {name:'',content:''}
+
 
   constructor() { }
 
   ngOnInit(): void {
   }
+
+  serverElements=[];
+  serverName='';
+  serverContent='';
+  serverType='';
+
+
+   onAddServer(){
+    console.log("Clcik")
+
+     this.serverElements.push(
+       {
+         serverType:'server',
+         name:this.serverName,
+         content:this.serverContent
+       }
+       );
+
+   }
+
+   onAddBlurPrint(){
+
+ this.serverElements.push(
+   {
+     serverType:'blueprint',
+     name:this.serverName,
+     content:this.serverContent
+   });
+
+   }
 
 }
