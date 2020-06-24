@@ -7,21 +7,24 @@ import {Component, Input} from '@angular/core';
 })
 export class AppComponent {
     title = 'SecondProject';
-    @Input() serverElements=[{name:'Apache Tomcat',content:'It,s use for web development'}];
+    @Input() serverElements=[{name:'Apache Tomcat',content:'It,s use for web development',type:'server'}];
 
 
-  onAddServer(serverData:{serverName:string,serverContent:string}){
+  onAddServer(serverData: { name: string; content: string }){
+
   this.serverElements.push({
-    name:serverData.serverName,
-    content:serverData.serverContent,
+    name:serverData.name,
+    content:serverData.content,
+    type:'server'
 
   });
 }
 
-  onBlueprintAdded(bluePrintData:{serverName:string,serverContent:string}){
+  onBlueprintAdded(bluePrintData: { name: string; content: string }){
    this.serverElements.push({
-    name:bluePrintData.serverName,
-    content:bluePrintData.serverContent,
+    name:bluePrintData.name,
+    content:bluePrintData.content,
+      type:'blueprint'
 
   });
 
