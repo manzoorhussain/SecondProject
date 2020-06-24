@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 
 
 @Component({
@@ -8,39 +8,41 @@ import {Component, Input, OnInit} from '@angular/core';
 })
 export class CockpitComponent implements OnInit {
 
+     @Output() onServerCreated=new EventEmitter<{name:string,content:string}>();
+     @Output() onBluePrintCreated=new EventEmitter<{name:string,content:string}>()
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  serverElements=[];
-  serverName='';
-  serverContent='';
-  serverType='';
+
+  newServerName='';
+  newServerContent='';
+
 
 
    onAddServer(){
-    console.log("Clcik")
 
-     this.serverElements.push(
-       {
-         serverType:'server',
-         name:this.serverName,
-         content:this.serverContent
-       }
-       );
+    this.onServerCreated.emit(
+      {
+        name:this.newServerName,
+        content:this.newServerContent
+      }
+      );
+
 
    }
 
    onAddBlurPrint(){
 
- this.serverElements.push(
-   {
-     serverType:'blueprint',
-     name:this.serverName,
-     content:this.serverContent
-   });
+      this.onBluePrintCreated.emit(
+      {
+        name:this.newServerName,
+        content:this.newServerContent
+      }
+      );
+
 
    }
 
